@@ -13,13 +13,13 @@
     <label for="myemail">My email:</label><br>
   <input type="text" id="myemail" name="myemail" ><br><br>
   <input type="button" id="mysubmit" value="Αναζήτηση">
-  <input type="reset" value="Καθαρισμός"><br>
+  <input type="reset" id="myreset" value="Καθαρισμός"><br>
   
 </form>
 
 <p>Παρακαλώ συμπληρώσε τα στοιχεία σας ακριβώς όπως το καταχωρήσατε στη φόρμα παρουσιών.<br>
-Εφόσον επιλέξετε "Αναζήτηση" θα εμφανιστεί μέσα στο μαύρο πλαίσιο, σύνδεμος ώστε να κατεβάσετε το πιστοσποιητικο σας τοπικά. </p>
-
+Εφόσον επιλέξετε "Αναζήτηση" και έχετε συμπληρώσει <strong>σωστά τα στοιχεία του email σας</strong>, θα εμφανιστεί μέσα στο μαύρο πλαίσιο, σύνδεμος ώστε να κατεβάσετε το πιστοσποιητικο σας τοπικά. </p>
+<div id="erros" style="border:2px solid red;coclor:green;visibility:hidden;"></div>
 <p id="showcerts" style="border:2px solid black">&nbsp;&nbsp;&nbsp;&nbsp;</p>
 
 
@@ -27,11 +27,19 @@
 
 
 function myFunction() {
-
-  document.getElementById("showcerts").innerHTML = "Γειά σου "+document.getElementById("fname").value+" "+document.getElementById("lname").value+" μπορείς να κατεβάσειςτο πιστοποιητικό σου από <a href='./files/"+document.getElementById("myemail").value+"'>εδώ</a>"; 
+if (document.getElementById("myemail").value=="")  {
+document.getElementById("erros").innerHTML="Παρακαλώ συμπληρώστε το email σας.";
+document.getElementById("erros").style.visibility="";
+} else {
+  document.getElementById("showcerts").innerHTML = "Γειά σου "+document.getElementById("fname").value+" "+document.getElementById("lname").value+" μπορείς να κατεβάσειςτο πιστοποιητικό σου από <a href='./files/"+document.getElementById("myemail").value+".pdf'>εδώ</a>"; 
 }
-
+}
 document.getElementById("mysubmit").addEventListener("click", myFunction);
+document.getElementById("myreset").addEventListener("click", function () {
+document.getElementById("erros").innerHTML="";
+document.getElementById("erros").style.visibility="hidden";
+document.getElementById("showcerts").innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;";
+});
 </script>
 
 </body>
