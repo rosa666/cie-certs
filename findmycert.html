@@ -2,15 +2,15 @@
 <html>
 <body>
 
-<h2>Text input fields</h2>
+<h2>Αναζήτηση πιστοποιητικού παρακολούθησης CIE2021</h2>
 
 <form id="mycerts">
-  <label for="fname">First name:</label><br>
+  <label for="fname">Το όνομα:</label><br>
   <input type="text" id="fname" name="fname" ><br>
-  <label for="lname">Last name:</label><br>
+  <label for="lname">Το επώνυμο:</label><br>
   <input type="text" id="lname" name="lname"><br>
   
-    <label for="myemail">My email:</label><br>
+    <label for="myemail">Το email:</label><br>
   <input type="text" id="myemail" name="myemail" ><br><br>
   <input type="button" id="mysubmit" value="Αναζήτηση">
   <input type="reset" id="myreset" value="Καθαρισμός"><br>
@@ -27,7 +27,9 @@
 
 
 function myFunction() {
-if (document.getElementById("myemail").value=="")  {
+myemall=document.getElementById("myemail").value;
+//alert(myemall.search("@"));
+if (myemall=="" ||  myemall.search("@")<0 )  {
 document.getElementById("erros").innerHTML="Παρακαλώ συμπληρώστε το email σας.";
 document.getElementById("erros").style.visibility="";
 } else {
