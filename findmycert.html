@@ -4,19 +4,34 @@
 
 <h2>Text input fields</h2>
 
-<form>
+<form id="mycerts">
   <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
+  <input type="text" id="fname" name="fname" ><br>
   <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe">
+  <input type="text" id="lname" name="lname"><br>
   
     <label for="myemail">My email:</label><br>
-  <input type="text" id="myemail" name="myemail" >
+  <input type="text" id="myemail" name="myemail" ><br><br>
+  <input type="button" id="mysubmit" value="Αναζήτηση">
+  <input type="reset" value="Καθαρισμός"><br>
+  
 </form>
 
-<p>Note that the form itself is not visible.</p>
+<p>Παρακαλώ συμπληρώσε τα στοιχεία σας ακριβώς όπως το καταχωρήσατε στη φόρμα παρουσιών.<br>
+Εφόσον επιλέξετε "Αναζήτηση" θα εμφανιστεί μέσα στο μαύρο πλαίσιο, σύνδεμος ώστε να κατεβάσετε το πιστοσποιητικο σας τοπικά. </p>
 
-<p>Also note that the default width of text input fields is 20 characters.</p>
+<p id="showcerts" style="border:2px solid black">&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+
+<script>
+document.getElementById("mysubmit").object.addEventListener("click", myFunction);
+
+function myFunction() {
+  alert("The form was submitted");
+}
+
+
+</script>
 
 </body>
 </html>
