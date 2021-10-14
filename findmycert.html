@@ -27,7 +27,8 @@
 
 
 function myFunction() {
-  alert("The form was submitted");
+
+  document.getElementById("showcerts").innerHTML = "Γειά σου "+document.getElementById("fname").value+" "+document.getElementById("lname").value+" μπορείς να κατεβάσειςτο πιστοποιητικό σου από <a href=''>εδώ</a>"; 
 }
 
 document.getElementById("mysubmit").addEventListener("click", myFunction);
